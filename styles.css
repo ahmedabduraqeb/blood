@@ -1,0 +1,627 @@
+/* ===== CSS Variables for Light/Dark Mode ===== */
+:root {
+    --bg-primary: #f8fafc;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #f1f5f9;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-tertiary: #94a3b8;
+    --border-color: #e2e8f0;
+    --accent-primary: #3b82f6;
+    --accent-hover: #2563eb;
+    --accent-light: #dbeafe;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --input-focus: rgba(59, 130, 246, 0.1);
+    --success: #10b981;
+    --error: #ef4444;
+    --warning: #f59e0b;
+}
+
+/* Dark Mode Variables */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-primary: #0f172a;
+        --bg-secondary: #1e293b;
+        --bg-tertiary: #334155;
+        --text-primary: #f1f5f9;
+        --text-secondary: #cbd5e1;
+        --text-tertiary: #64748b;
+        --border-color: #334155;
+        --accent-primary: #3b82f6;
+        --accent-hover: #60a5fa;
+        --accent-light: #1e3a8a;
+        --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+        --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.4);
+        --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 10px 10px -5px rgba(0, 0, 0, 0.5);
+        --input-focus: rgba(59, 130, 246, 0.2);
+    }
+}
+
+/* ===== Reset & Base Styles ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ===== Container & Layout ===== */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-tertiary) 100%);
+}
+
+.login-card {
+    background: var(--bg-secondary);
+    border-radius: 1.5rem;
+    box-shadow: var(--shadow-xl);
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 440px;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+/* ===== Logo Section ===== */
+.logo-section {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.logo-circle {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-hover) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    color: white;
+    box-shadow: var(--shadow-lg);
+    transition: transform 0.3s ease;
+}
+
+.logo-circle:hover {
+    transform: scale(1.05);
+}
+
+.title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.025em;
+}
+
+.subtitle {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+/* ===== Form Styles ===== */
+.login-form {
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.01em;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon {
+    position: absolute;
+    left: 1rem;
+    color: var(--text-tertiary);
+    pointer-events: none;
+    transition: color 0.2s ease;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.875rem 1rem 0.875rem 3rem;
+    font-size: 0.9375rem;
+    border: 2px solid var(--border-color);
+    border-radius: 0.75rem;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+    outline: none;
+    font-family: inherit;
+}
+
+.form-input::placeholder {
+    color: var(--text-tertiary);
+}
+
+.form-input:focus {
+    border-color: var(--accent-primary);
+    background: var(--input-focus);
+    box-shadow: 0 0 0 4px var(--input-focus);
+}
+
+.form-input:focus + .input-icon,
+.input-wrapper:focus-within .input-icon {
+    color: var(--accent-primary);
+}
+
+.password-input {
+    padding-right: 3.5rem;
+}
+
+/* ===== Password Toggle Button ===== */
+.toggle-password {
+    position: absolute;
+    right: 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-tertiary);
+    transition: color 0.2s ease;
+    border-radius: 0.375rem;
+}
+
+.toggle-password:hover {
+    color: var(--accent-primary);
+    background: var(--accent-light);
+}
+
+.toggle-password:focus {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+}
+
+.eye-icon {
+    transition: opacity 0.2s ease;
+}
+
+.eye-closed {
+    display: none;
+}
+
+.toggle-password.active .eye-open {
+    display: none;
+}
+
+.toggle-password.active .eye-closed {
+    display: block;
+}
+
+/* ===== Form Options ===== */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.checkbox-label input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkbox-custom {
+    width: 1.125rem;
+    height: 1.125rem;
+    border: 2px solid var(--border-color);
+    border-radius: 0.375rem;
+    margin-right: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    background: var(--bg-secondary);
+}
+
+.checkbox-label input[type="checkbox"]:checked + .checkbox-custom {
+    background: var(--accent-primary);
+    border-color: var(--accent-primary);
+}
+
+.checkbox-label input[type="checkbox"]:checked + .checkbox-custom::after {
+    content: '';
+    width: 0.375rem;
+    height: 0.625rem;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    display: block;
+}
+
+.checkbox-label input[type="checkbox"]:focus + .checkbox-custom {
+    box-shadow: 0 0 0 4px var(--input-focus);
+}
+
+.checkbox-text {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.forgot-link {
+    font-size: 0.875rem;
+    color: var(--accent-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.forgot-link:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+
+/* ===== Primary Button ===== */
+.btn-primary {
+    width: 100%;
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-hover) 100%);
+    border: none;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    box-shadow: var(--shadow-md);
+    font-family: inherit;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:focus {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+}
+
+.btn-icon {
+    transition: transform 0.3s ease;
+}
+
+.btn-primary:hover .btn-icon {
+    transform: translateX(4px);
+}
+
+/* ===== Divider ===== */
+.divider {
+    position: relative;
+    text-align: center;
+    margin: 2rem 0 1.5rem;
+}
+
+.divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--border-color);
+}
+
+.divider-text {
+    position: relative;
+    display: inline-block;
+    padding: 0 1rem;
+    background: var(--bg-secondary);
+    color: var(--text-tertiary);
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+/* ===== Social Login ===== */
+.social-login {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.social-btn {
+    flex: 1;
+    padding: 0.875rem;
+    background: var(--bg-tertiary);
+    border: 2px solid var(--border-color);
+    border-radius: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
+}
+
+.social-btn:hover {
+    background: var(--accent-light);
+    border-color: var(--accent-primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.social-btn:active {
+    transform: translateY(0);
+}
+
+.social-btn:focus {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+}
+
+/* ===== Signup Text ===== */
+.signup-text {
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.signup-link {
+    color: var(--accent-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.signup-link:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+
+/* ===== Responsive Design ===== */
+
+/* Tablet (768px and below) */
+@media (max-width: 768px) {
+    .login-card {
+        padding: 2rem;
+        border-radius: 1.25rem;
+    }
+
+    .title {
+        font-size: 1.625rem;
+    }
+
+    .subtitle {
+        font-size: 0.875rem;
+    }
+
+    .logo-circle {
+        width: 70px;
+        height: 70px;
+    }
+
+    .form-input {
+        font-size: 0.875rem;
+        padding: 0.75rem 0.875rem 0.75rem 2.75rem;
+    }
+
+    .btn-primary {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.9375rem;
+    }
+}
+
+/* Mobile (480px and below) */
+@media (max-width: 480px) {
+    .container {
+        padding: 0.75rem;
+    }
+
+    .login-card {
+        padding: 1.5rem;
+        border-radius: 1rem;
+        max-width: 100%;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .subtitle {
+        font-size: 0.8125rem;
+    }
+
+    .logo-circle {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 1rem;
+    }
+
+    .logo-circle svg {
+        width: 32px;
+        height: 32px;
+    }
+
+    .form-group {
+        margin-bottom: 1.25rem;
+    }
+
+    .form-label {
+        font-size: 0.8125rem;
+        margin-bottom: 0.375rem;
+    }
+
+    .form-input {
+        font-size: 0.875rem;
+        padding: 0.75rem 0.875rem 0.75rem 2.5rem;
+    }
+
+    .input-icon {
+        left: 0.875rem;
+        width: 18px;
+        height: 18px;
+    }
+
+    .toggle-password {
+        right: 0.75rem;
+    }
+
+    .form-options {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .checkbox-text,
+    .forgot-link {
+        font-size: 0.8125rem;
+    }
+
+    .btn-primary {
+        padding: 0.75rem 1rem;
+        font-size: 0.875rem;
+    }
+
+    .social-login {
+        gap: 0.75rem;
+    }
+
+    .social-btn {
+        padding: 0.75rem;
+    }
+
+    .social-btn svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .divider {
+        margin: 1.5rem 0 1.25rem;
+    }
+
+    .divider-text {
+        font-size: 0.8125rem;
+        padding: 0 0.75rem;
+    }
+
+    .signup-text {
+        font-size: 0.8125rem;
+    }
+}
+
+/* Extra small devices (360px and below) */
+@media (max-width: 360px) {
+    .login-card {
+        padding: 1.25rem;
+    }
+
+    .title {
+        font-size: 1.375rem;
+    }
+
+    .logo-circle {
+        width: 56px;
+        height: 56px;
+    }
+
+    .form-input {
+        padding: 0.625rem 0.75rem 0.625rem 2.25rem;
+    }
+
+    .btn-primary {
+        padding: 0.625rem 0.875rem;
+    }
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.login-card {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* ===== Accessibility ===== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Focus visible for keyboard navigation */
+*:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .login-card {
+        border: 2px solid var(--text-primary);
+    }
+
+    .form-input {
+        border-width: 2px;
+    }
+
+    .btn-primary {
+        border: 2px solid var(--text-primary);
+    }
+}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Modern Authentication</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-card">
+            <div class="logo-section">
+                <div class="logo-circle">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 5C11.716 5 5 11.716 5 20C5 28.284 11.716 35 20 35C28.284 35 35 28.284 35 20C35 11.716 28.284 5 20 5ZM20 10C22.761 10 25 12.239 25 15C25 17.761 22.761 20 20 20C17.239 20 15 17.761 15 15C15 12.239 17.239 10 20 10ZM20 31C16.25 31 12.95 29.15 11 26.35C11.05 23.5 16.9 21.95 20 21.95C23.1 21.95 28.95 23.5 29 26.35C27.05 29.15 23.75 31 20 31Z" fill="currentColor"/>
+                    </svg>
+                </div>
+                <h1 class="title">Welcome Back</h1>
+                <p class="subtitle">Please enter your credentials to continue</p>
+            </div>
+
+            <form class="login-form" id="loginForm">
+                <div class="form-group">
+                    <label for="username" class="form-label">Username</label>
+                    <div class="input-wrapper">
+                        <svg class="input-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 10C12.7614 10 15 7.76142 15 5C15 2.23858 12.7614 0 10 0C7.23858 0 5 2.23858 5 5C5 7.76142 7.23858 10 10 10ZM10 12.5C6.66667 12.5 0 14.175 0 17.5V20H20V17.5C20 14.175 13.3333 12.5 10 12.5Z" fill="currentColor"/>
+                        </svg>
+                        <input 
+                            type="text" 
+                            id="username" 
+                            name="username" 
+                            class="form-input" 
+                            placeholder="Enter your username"
+                            required
+                            autocomplete="username"
+                        >
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password" class="form-label">Password</label>
+                    <div class="input-wrapper">
+                        <svg class="input-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15 7H14V5C14 2.24 11.76 0 9 0C6.24 0 4 2.24 4 5V7H3C1.9 7 1 7.9 1 9V19C1 20.1 1.9 21 3 21H15C16.1 21 17 20.1 17 19V9C17 7.9 16.1 7 15 7ZM9 16C7.9 16 7 15.1 7 14C7 12.9 7.9 12 9 12C10.1 12 11 12.9 11 14C11 15.1 10.1 16 9 16ZM12 7H6V5C6 3.34 7.34 2 9 2C10.66 2 12 3.34 12 5V7Z" fill="currentColor"/>
+                        </svg>
+                        <input 
+                            type="password" 
+                            id="password" 
+                            name="password" 
+                            class="form-input password-input" 
+                            placeholder="Enter your password"
+                            required
+                            autocomplete="current-password"
+                        >
+                        <button type="button" class="toggle-password" id="togglePassword" aria-label="Toggle password visibility">
+                            <svg class="eye-icon eye-open" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10 4C5 4 1.73 7.11 0 10C1.73 12.89 5 16 10 16C15 16 18.27 12.89 20 10C18.27 7.11 15 4 10 4ZM10 14C7.79 14 6 12.21 6 10C6 7.79 7.79 6 10 6C12.21 6 14 7.79 14 10C14 12.21 12.21 14 10 14ZM10 8C8.9 8 8 8.9 8 10C8 11.1 8.9 12 10 12C11.1 12 12 11.1 12 10C12 8.9 11.1 8 10 8Z" fill="currentColor"/>
+                            </svg>
+                            <svg class="eye-icon eye-closed" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10 6C12.21 6 14 7.79 14 10C14 10.35 13.94 10.69 13.85 11L16.02 13.17C17.21 12.06 18.16 11.05 18.77 10C17.27 7.61 13.89 4 10 4C8.73 4 7.53 4.3 6.43 4.82L8.09 6.48C8.43 6.18 8.7 6 10 6ZM1.71 1.29L0.29 2.71L2.82 5.24C1.5 6.39 0.48 7.42 0 10C1.73 12.89 5 16 10 16C11.52 16 12.97 15.59 14.3 14.87L17.29 17.86L18.71 16.44L1.71 1.29ZM10 14C7.79 14 6 12.21 6 10C6 9.4 6.14 8.84 6.39 8.35L7.97 9.93C7.99 9.95 8 9.97 8 10C8 11.1 8.9 12 10 12C10.03 12 10.05 12.01 10.07 12.03L11.65 13.61C11.16 13.86 10.6 14 10 14Z" fill="currentColor"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-options">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="remember" name="remember">
+                        <span class="checkbox-custom"></span>
+                        <span class="checkbox-text">Remember me</span>
+                    </label>
+                    <a href="#" class="forgot-link">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="btn-primary">
+                    <span class="btn-text">Sign In</span>
+                    <svg class="btn-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 0L8.59 1.41L15.17 8H0V10H15.17L8.59 16.59L10 18L20 10L10 0Z" fill="currentColor"/>
+                    </svg>
+                </button>
+            </form>
+
+            <div class="divider">
+                <span class="divider-text">or continue with</span>
+            </div>
+
+            <div class="social-login">
+                <button class="social-btn" aria-label="Sign in with Google">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.6 10.227c0-.709-.064-1.39-.182-2.045H10v3.868h5.382a4.6 4.6 0 01-1.996 3.018v2.51h3.232c1.891-1.742 2.982-4.305 2.982-7.35z" fill="#4285F4"/>
+                        <path d="M10 20c2.7 0 4.964-.895 6.618-2.423l-3.232-2.509c-.895.6-2.04.955-3.386.955-2.605 0-4.81-1.76-5.595-4.123H1.064v2.59A9.996 9.996 0 0010 20z" fill="#34A853"/>
+                        <path d="M4.405 11.9c-.2-.6-.314-1.24-.314-1.9 0-.66.114-1.3.314-1.9V5.51H1.064A9.996 9.996 0 000 10c0 1.614.386 3.14 1.064 4.49l3.34-2.59z" fill="#FBBC05"/>
+                        <path d="M10 3.977c1.468 0 2.786.505 3.823 1.496l2.868-2.868C14.959.99 12.695 0 10 0 6.09 0 2.71 2.24 1.064 5.51l3.34 2.59C5.19 5.736 7.395 3.977 10 3.977z" fill="#EA4335"/>
+                    </svg>
+                </button>
+                <button class="social-btn" aria-label="Sign in with GitHub">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M10 0C4.477 0 0 4.477 0 10c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0110 4.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C17.137 18.165 20 14.418 20 10c0-5.523-4.477-10-10-10z"/>
+                    </svg>
+                </button>
+                <button class="social-btn" aria-label="Sign in with Apple">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16.93 10.25c-.03-2.84 2.32-4.21 2.43-4.28-1.33-1.94-3.39-2.21-4.12-2.24-1.75-.18-3.42 1.03-4.31 1.03-.89 0-2.27-1-3.73-.98-1.92.03-3.69 1.12-4.68 2.84-2 3.46-.51 8.58 1.43 11.39.95 1.38 2.09 2.92 3.58 2.87 1.46-.06 2.01-.94 3.77-.94 1.76 0 2.26.94 3.73.91 1.54-.03 2.54-1.39 3.49-2.78 1.1-1.6 1.55-3.15 1.58-3.23-.03-.01-3.03-1.16-3.06-4.59zM13.63 2.62c.79-.96 1.32-2.29 1.18-3.62-1.14.05-2.52.76-3.34 1.71-.73.85-1.37 2.2-1.2 3.5 1.27.1 2.57-.64 3.36-1.59z"/>
+                    </svg>
+                </button>
+            </div>
+
+            <p class="signup-text">
+                Don't have an account? <a href="#" class="signup-link">Sign up</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
